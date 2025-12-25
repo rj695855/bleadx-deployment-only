@@ -3,10 +3,26 @@ variable "aws_region" {
 }
 
 variable "ami_id" {
-  description = "Amazon Linux 2 AMI"
-  default     = "ami-0f5ee92e2d63afc18" # ap-south-1 (verify once)
+  description = "Amazon Linux 2 (Mumbai)"
+  default     = "ami-0f5ee92e2d63afc18"
 }
 
 variable "instance_type" {
   default = "t2.micro"
+}
+
+# -------- GoDaddy --------
+variable "godaddy_api_key" {
+  type      = string
+  sensitive = true
+}
+
+variable "godaddy_api_secret" {
+  type      = string
+  sensitive = true
+}
+
+variable "domain_name" {
+  description = "example.com"
+  type        = string
 }
