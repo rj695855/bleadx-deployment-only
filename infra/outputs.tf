@@ -1,8 +1,11 @@
-
-output "instance_id" {
-  value = aws_instance.example.id
+output "ec2_id" {
+  value = aws_instance.ec2.id
 }
 
-output "public_ip" {
-  value = aws_instance.example.public_ip
+output "elastic_ip" {
+  value = aws_eip.eip.public_ip
+}
+
+output "domain" {
+  value = var.domain_name
 }
