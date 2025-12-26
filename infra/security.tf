@@ -1,4 +1,4 @@
-resource "aws_security_group" "web_sg" {
+resource "aws_security_group" "bleadx-web-sg" {
   name        = "bleadx-web-sg"
   description = "Allow HTTP, HTTPS and Tomcat"
 
