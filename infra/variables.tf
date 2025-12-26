@@ -3,12 +3,12 @@ variable "aws_region" {
 }
 
 variable "ami_id" {
-  description = "Amazon Linux 2 (Mumbai)"
-  default     = "ami-0f5ee92e2d63afc18"
+  description = "Ubuntu Server 24.04 LTS (HVM)"
+  default     = "ami-02b8269d5e85954ef"
 }
 
 variable "instance_type" {
-  default = "t2.micro"
+  default = "c7i-flex.large"
 }
 
 # -------- GoDaddy --------
