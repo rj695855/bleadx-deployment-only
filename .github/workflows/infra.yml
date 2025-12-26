@@ -26,6 +26,10 @@ jobs:
       - name: Terraform Validate
         working-directory: infra
         run: terraform validate
+        env:
+          TF_VAR_godaddy_api_key: ${{ secrets.GODADDY_API_KEY }}
+          TF_VAR_godaddy_api_secret: ${{ secrets.GODADDY_API_SECRET }}
+          TF_VAR_domain_name: ${{ secrets.DOMAIN_NAME }}
 
       - name: Terraform Plan
         working-directory: infra
