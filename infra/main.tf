@@ -39,8 +39,8 @@ resource "aws_eip" "eip" {
 
 # ---------- GoDaddy ----------
 provider "godaddy" {
-  api_key = var.godaddy_api_key
-  secret  = var.godaddy_api_secret
+  key    = var.godaddy_api_key
+  secret = var.godaddy_api_secret
 }
 
 resource "godaddy_domain_record" "root_domain" {
