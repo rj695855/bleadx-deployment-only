@@ -22,9 +22,23 @@ provider "aws" {
 resource "aws_instance" "ec2" {
   ami           = var.ami_id
   instance_type = var.instance_type
+  vpc_security_group_ids = [aws_security_group.web_sg.id]
+  iam_instance_profile   = aws_iam_instance_profile.ssm_profile.name
+
+  user_data = <<-EOF
+              #cloud-config
+              write_files:
+                - path: /tmp/setup.sh
+                  permissions: '0755'
+                  content: |
+                    ${indent(20, file("${path.module}/scripts/deploy.sh"))}
+
+              runcmd:
+                - /tmp/setup.sh
+              EOF
 
   tags = {
-    Name = "github-action-ec2"
+    Name = "production-ec2"
   }
 }
 
