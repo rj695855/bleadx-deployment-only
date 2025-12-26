@@ -22,7 +22,7 @@ provider "aws" {
 resource "aws_instance" "ec2" {
   ami           = var.ami_id
   instance_type = var.instance_type
-  vpc_security_group_ids = [aws_security_group.web_sg.id]
+  vpc_security_group_ids = [aws_security_group.bleadx-web-sg.id]
   iam_instance_profile   = aws_iam_instance_profile.ssm_profile.name
 
   user_data = <<-EOF
